@@ -51,35 +51,35 @@ void loop()
   Serial.println("hi2");
   
 
-  // long cm = see();
-  // if (cm < 7)
-  // {
-  //   stopm();
-  //   if (!use_arm())
-  //   {
-  //     speed_control(0);
-  //     move_backward();
-  //     delay(1000);
-  //     turn_left();
-  //     Serial.println("turning");
-  //     // while (cm < 26)
-  //     // {
-  //     //   cm = see();
-  //     //   delay(100);
-  //     // }
-  //   }
-  // }
-  // else
-  // {
-  //   move_forward();
-  //   if (cm < 50)
-  //     speed_control(0);
-  //   else if (cm < 106)
-  //     speed_control((cm - 56) * 2);
-  //   else
-  //     speed_control(100);
-  // }
-  // delay(100);
+  long cm = see();
+  if (cm < 7)
+  {
+  stopm();
+  if (!use_arm())
+  {
+  speed_control(0);
+  move_backward();
+  delay(1000);
+  turn_left();
+  Serial.println("turning");
+  while (cm < 26)
+  {
+  cm = see();
+  delay(100);
+  }
+  }
+  }
+  else
+  {
+  move_forward();
+  if (cm < 50)
+    speed_control(0);
+  else if (cm < 106)
+    speed_control((cm - 56) * 2);
+  else
+    speed_control(100);
+  }
+  delay(100);
 
 
 }
@@ -147,14 +147,14 @@ long microsecondsToCentimeters(long microseconds)
 
 bool use_arm()
 {
-  // Serial.println("hi");
-  // arm.moveToDegrees(0);
-  //   Serial.println("hi2");
+  Serial.println("hi");
+  arm.moveToDegrees(0);
+  Serial.println("hi2");
 
-  // arm.update();
-  // base.moveToDegrees(0);
-  // base.update();
-  //   Serial.println("hi3");
+  arm.update();
+  base.moveToDegrees(0);
+  base.update();
+  Serial.println("hi3");
 
   return false;
 }
